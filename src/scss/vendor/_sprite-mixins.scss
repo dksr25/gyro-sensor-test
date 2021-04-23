@@ -1,0 +1,57 @@
+$sprite-vars: (
+	'alert_1': (
+		offset-x: -84px / 2,
+		offset-y: -124px / 2,
+		width: 26px / 2,
+		height: 26px / 2,
+		total-width: 480px / 2,
+		total-height: 204px / 2,
+		imageSrc: '../img/sprite.png'
+	),
+	'gradient-sample': (
+		offset-x: 0px / 2,
+		offset-y: 0px / 2,
+		width: 480px / 2,
+		height: 120px / 2,
+		total-width: 480px / 2,
+		total-height: 204px / 2,
+		imageSrc: '../img/sprite.png'
+	),
+	'line_app': (
+		offset-x: 0px / 2,
+		offset-y: -124px / 2,
+		width: 80px / 2,
+		height: 80px / 2,
+		total-width: 480px / 2,
+		total-height: 204px / 2,
+		imageSrc: '../img/sprite.png'
+	),
+);
+$sprite-origin: (
+  total-width: 480px / 2,
+  total-height: 204px / 2,
+  imageSrc: '../img/sprite.png'
+);
+
+@mixin sprite-size($image) {
+	background-size: map-get($image, 'total-width') map-get($image, 'total-height');
+}
+
+@mixin sprite-image($image) {
+	$image-path: map-get($image, 'imageSrc');
+	background-image: url($image-path);
+}
+
+@mixin set-sprite {
+  @include sprite-size($sprite-origin);
+  @include sprite-image($sprite-origin);
+}
+
+@mixin use-sprite($image, $size: true) {
+  @include set-sprite;
+	background-position: map-get(map-get($sprite-vars, $image), 'offset-x') map-get(map-get($sprite-vars, $image), 'offset-y');
+	@if $size {
+		width: map-get(map-get($sprite-vars, $image), 'width');
+		height: map-get(map-get($sprite-vars, $image), 'height');
+	}
+}

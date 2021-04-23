@@ -1,0 +1,65 @@
+// swiper slide (base)
+.swiper-container {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+    z-index: 1;
+    font-size: 10px;
+}
+
+.swiper-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+	transition-property: transform,-webkit-transform;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+.swiper-slide {
+	position: relative;
+	-webkit-flex-shrink: 0;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	-webkit-transition-property: -webkit-transform;
+	transition-property: -webkit-transform;
+	-o-transition-property: transform;
+	transition-property: transform;
+	transition-property: transform,-webkit-transform;
+	height: 100%;
+}
+
+.swiper-pagination-bullets {
+	z-index: 1;
+}
+
+.swiper-pagination {
+    font-size: 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.swiper-pagination-bullet {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin: 0 4px;
+    vertical-align: top;
+    @include border-radius(50%);
+    background-color: #ccc;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: lightblue;
+}

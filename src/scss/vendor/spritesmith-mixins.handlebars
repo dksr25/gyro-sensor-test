@@ -1,0 +1,47 @@
+{
+	'functions': true
+}
+
+${{spritesheet_info.name}}-vars: (
+	{{#items}}
+	'{{name}}': (
+		offset-x: {{px.offset_x}} / 2,
+		offset-y: {{px.offset_y}} / 2,
+		width: {{px.width}} / 2,
+		height: {{px.height}} / 2,
+		total-width: {{px.total_width}} / 2,
+		total-height: {{px.total_height}} / 2,
+		imageSrc: '{{{escaped_image}}}'
+	),
+	{{/items}}
+);
+${{spritesheet_info.name}}-origin: (
+  total-width: {{spritesheet.px.width}} / 2,
+  total-height: {{spritesheet.px.height}} / 2,
+  imageSrc: '{{spritesheet.escaped_image}}'
+);
+
+{{#options.functions}}
+@mixin sprite-size($image) {
+	background-size: map-get($image, 'total-width') map-get($image, 'total-height');
+}
+
+@mixin sprite-image($image) {
+	$image-path: map-get($image, 'imageSrc');
+	background-image: url($image-path);
+}
+
+@mixin set-{{spritesheet_info.name}} {
+  @include sprite-size(${{spritesheet_info.name}}-origin);
+  @include sprite-image(${{spritesheet_info.name}}-origin);
+}
+
+@mixin use-{{spritesheet_info.name}}($image, $size: true) {
+  @include set-{{spritesheet_info.name}};
+	background-position: map-get(map-get(${{spritesheet_info.name}}-vars, $image), 'offset-x') map-get(map-get(${{spritesheet_info.name}}-vars, $image), 'offset-y');
+	@if $size {
+		width: map-get(map-get(${{spritesheet_info.name}}-vars, $image), 'width');
+		height: map-get(map-get(${{spritesheet_info.name}}-vars, $image), 'height');
+	}
+}
+{{/options.functions}}

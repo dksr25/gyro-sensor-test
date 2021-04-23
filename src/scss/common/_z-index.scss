@@ -1,0 +1,37 @@
+// z-index 관리
+$z-indexes: ( // z-index 순서대로 클래스명을 적어 주면됩니다.
+    "div1",  // z-index:3
+    "div2", // z-index:2
+    "div3" // z-index:1
+);
+
+.z-index-test {
+  position: relative;
+  .z-index-div1 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    background-color: red;
+    z-index: z('div1');
+  }
+  .z-index-div2 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    left: 10px;
+    background-color: blue;
+    z-index: z('div2');
+  }
+  .z-index-div3 {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 20px;
+    left: 20px;
+    background-color: yellow;
+    z-index: z('div3');
+  }
+}
