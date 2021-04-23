@@ -11,7 +11,7 @@
 
 	<h1>
 		<span>Gyro sensor script test</span>
-		<span class="message"><%= branch %> 브랜치</span>
+		<span class="message">main 브랜치</span>
 	</h1>
 	<p class="desc">
 		<span></span>
@@ -29,20 +29,9 @@
 				<h2>카테고리 바로가기</h2>
 				<select id="category">
 					<option value="default" disabled selected>Select category</option>
-					<% for (var i=0; i < 100 ; i++){
-							var categoryNum = String("0" + i).slice(-2);
-							var colIndex = 0;
-							var nfileList = nfiles;
-							for(var j=0 ; j < nfileList.length; j++){
-								if (categoryNum == nfileList[j].category){
-									if (colIndex == 0){ %>
-					<option value="<%= categoryNum %>">
-						<%= categoryNum %>.<%= nfileList[j].categoryText _%>
-					</option><%} 
-									colIndex++; 
-								} 
-							} 
-						}%>
+					
+					<option value="01">
+						01.HTML List					</option>
 				</select>
 			</div>
 			<div class="toc">
@@ -52,48 +41,44 @@
 			<script>document.getElementById("_im1").src = 'http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl='+encodeURIComponent(location.href);</script>
 		</div>
 		
-		<%
-			var today = new Date();
-			today = Date.parse(today);
-			for (var i=0; i < 100 ; i++){
-				var categoryNum = String("0" + i).slice(-2);
-				var listCount = 0;
-				var nfileList = nfiles;
-				var lastCategory = nfileList[nfileList.length - 1].category;
-				for(var j=0 ; j < nfileList.length; j++){
-					if (categoryNum == nfileList[j].category){
-						if (listCount == 0){ %>
-		<section id="tab<%= categoryNum _%>">				
-			<h2 class="sec_h"><%= categoryNum _%>_<%= nfileList[j].categoryText _%></h2>
-			<ul class="page-lst"><%} %> 
-			<li class="<%= nfileList[j].position %>">
-				<a class="<%= nfileList[j].status _%>" href="html/<%= nfileList[j].name _%>">
-					<span class="name"><%= nfileList[j].title %></span>
+		
+		<section id="tab01">				
+			<h2 class="sec_h">01_HTML List</h2>
+			<ul class="page-lst"> 
+			<li class="">
+				<a class="" href="html/01_main.html">
+					<span class="name">Main</span>
 					<span class="arrow">&#10149;</span>
 					<span class="date" 
-								title="<%= nfileList[j].ndate %>" 
-								data-since="<%= nfileList[j].since %>" 
-								data-age="<%= nfileList[j].age %>"><%= nfileList[j].mdate.substring(2,10).replace(/-/gi,'') %></span>
+								title="2021-4-23 4:11:59 PM (GMT+9)" 
+								data-since="1619161919000" 
+								data-age="1619155250000">210423</span>
 				</a>
-				<% if(nfileList[j].check.includes(true) && nfileList[j].status != 'yet') { %>
+				
 				<button type="button" class="btn_toggle"></button>
 				<ul class="page-sub-lst">
 				<li>
-					<span><%= nfileList[j].name _%></span>
-					<span class="date" title="<%= nfileList[j].ndate %>"><%= nfileList[j].mdate.substring(2,10).replace(/-/gi,'') %></span>
+					<span>01_main.html</span>
+					<span class="date" title="2021-4-23 4:11:59 PM (GMT+9)">210423</span>
 				</li>
-				<% for (var k=0; k < ejsFiles.length; k++) {%>
-				<% if (nfileList[j].check[k]) { %>
+				
+				
 				<li>
-					<span><%= ejsFiles[k].name _%></span>
-					<span class="date" title="<%= ejsFiles[k].ndate _%>"><%= ejsFiles[k].mdate.substring(2,10).replace(/-/gi,'') _%></span>
+					<span>includes/footer.ejs</span>
+					<span class="date" title="2021-4-23 4:11:59 PM (GMT+9)">210423</span>
 				</li>
-				<% }} %>
+				
+				
+				<li>
+					<span>includes/header.ejs</span>
+					<span class="date" title="2021-4-23 4:11:59 PM (GMT+9)">210423</span>
+				</li>
+				
 				</ul>
-				<% } %>	
-			</li> <% listCount++; } }  if (categoryNum <= lastCategory && listCount >= 1) { %>
+					
+			</li> 
 			</ul>
-		</section> <%  } } %>
+		</section> 
 	</div>
 		
 	<script>

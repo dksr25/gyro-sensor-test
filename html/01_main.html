@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Main : HTML List</title>
+	<link rel="shortcut icon" href="../img/favicon_v2.ico">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+	<link rel="stylesheet" href="../css/service.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<!-- header -->
+		<header class="header">
+			<h1 class="logo">GYRO</h1>
+		</header>
+		<!-- //header -->
+		<!-- container -->
+		<main class="container">
+			<div class="frame" id="f_1">
+				<div class="frame" id="f_2">
+					<div class="frame" id="f_3">
+						<div class="frame" id="f_4">
+							<div class="frame" id="f_5">
+								<div class="frame" id="f_6"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<!-- //container -->
+
+		<!-- footer -->
+		<footer class="footer"></footer>
+		<!-- //footer -->
+	</div>
+	<script>
+	window.addEventListener("deviceorientation", handleOrientation, true)
+
+	var frame1 = document.getElementById('f_1');
+
+	function handleOrientation(e) {
+	  var absolute = e.absolute;
+	  var alpha = e.alpha;
+	  var beta = e.beta;
+	  var gamma = e.gamma;
+
+	  frame1.style.transform = "translateX:" + (20 * gamma / 90) + "px"
+	}
+
+	</script>
+</body>
+
+</html>
