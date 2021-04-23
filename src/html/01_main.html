@@ -8,12 +8,12 @@
 
     <!-- container -->
     <main class="container">
-      <div class="frame" id="f_1">
-        <div class="frame" id="f_2">
-          <div class="frame" id="f_3">
-            <div class="frame" id="f_4">
-              <div class="frame" id="f_5">
-                <div class="frame" id="f_6"></div>
+      <div class="frame" id="f1">
+        <div class="frame" id="f2">
+          <div class="frame" id="f3">
+            <div class="frame" id="f4">
+              <div class="frame" id="f5">
+                <div class="frame" id="f6"></div>
               </div>
             </div>
           </div>
@@ -25,18 +25,23 @@
     <%- include('includes/footer') -%>
   </div>
 <script>
-window.addEventListener("deviceorientation", handleOrientation, true)
+  
+  var frame1 = document.getElementById('f1');
+  
+  function handleOrientation(e) {
+    var absolute = e.absolute;
+    var alpha = e.alpha;
+    var beta = e.beta;
+    var gamma = e.gamma;
+    
+    frame1.style.transform = "translateX(" +(20*gamma/90)+ "px)"
+  }
 
-var frame1 = document.getElementById('f_1');
+  // frame1.setAttribute("style","transform: translateX(" +(20*90/90)+ "px)")
+  // frame1.style.transform = "translateX(" +(20*90/90)+ "px)"
 
-function handleOrientation(e) {
-  var absolute = e.absolute;
-  var alpha = e.alpha;
-  var beta = e.beta;
-  var gamma = e.gamma;
 
-  frame1.style.transform = "translateX:" +(20*gamma/90)+ "px"
-}
+  window.addEventListener("deviceorientation", handleOrientation, true)
 </script>  
 </body>
 
