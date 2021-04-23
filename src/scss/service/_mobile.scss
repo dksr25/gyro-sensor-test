@@ -23,7 +23,7 @@
     border: 3px solid #eee;
     box-sizing: border-box;
     &:not(#f1) {
-      filter: blur(1px);
+      filter: blur(2px);
     }
   }
 }
