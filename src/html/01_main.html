@@ -27,6 +27,12 @@
 <script>
   
   var frame1 = document.getElementById('f1');
+  var frame2 = document.getElementById('f2');
+  var frame3 = document.getElementById('f3');
+  var frame4 = document.getElementById('f4');
+  var frame5 = document.getElementById('f5');
+  var frame6 = document.getElementById('f6');
+
   
   function handleOrientation(e) {
     var absolute = e.absolute;
@@ -35,6 +41,11 @@
     var gamma = e.gamma;
     
     frame1.style.transform = "translateX(" +(20*gamma/90)+ "px)"
+    frame2.style.transform = "translateX(" +(-10*gamma/90)+ "px)"
+    frame3.style.transform = "translateX(" +(5*gamma/90)+ "px)"
+    frame4.style.transform = "translateX(" +(-3*gamma/90)+ "px)"
+    frame5.style.transform = "translateX(" +(1*gamma/90)+ "px)"
+    frame6.style.transform = "translateX(" +(-0.5*gamma/90)+ "px)"
   }
 
   // frame1.setAttribute("style","transform: translateX(" +(20*90/90)+ "px)")
