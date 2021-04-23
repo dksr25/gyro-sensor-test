@@ -1,215 +1,35 @@
 // mobile layout -----------------------------
 .wrap {
-  overflow: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
   @include safeArea(true, padding, right left);
+  background-color: #000c77;
 }
 
 .header {
   position: relative;
+  text-align: center;
+  color: #e4e4e4;
 }
 
 .container {
+  flex: 1 1 auto;
   position: relative;
+  padding: 20px;
+  .frame {
+    height: 100%;
+    padding: 20px;
+    border: 3px solid #eee;
+    box-sizing: border-box;
+  }
 }
 
 .footer {
   position: relative;
   margin-top: 10px;
   @include safeArea(true, padding, 8px 0 bottom);
-  background-color: #f2f2f2;
   color: #a0a0a0;
   text-align: center;
-}
-
-// mobile content -----------------------------
-.logo {
-  margin: 10px 11px;
-  color: $line_green;
-  @include rfonts(16, 25, 700);
-  &:before {
-    content: '';
-    display: inline-block;
-    overflow: hidden;
-    vertical-align: middle;
-    margin-bottom: 2px;
-    @include use-sprite('line_app');
-  }
-}
-
-.sub_info {
-  position: relative;
-  color: #7d7d7d;
-  padding: 0 11px 0 29px;
-  margin: 12px 0 10px;
-  @include rfonts(12, 16, 400);
-  &:before {
-    content: '';
-    position: absolute;
-    top: 1px;
-    left: 12px;
-    @include use-sprite('alert_1');
-  }
-}
-
-.box {
-  position: relative;
-  margin: 0 11px;
-  &:before {
-    @extend %bg_t;
-    border-color: #ccc;
-  }
-  li {
-    position: relative;
-    @include rfonts(14, 19px, 400);
-    padding: 8px 6px;
-    &:after {
-      @extend %bg_u;
-      border-color: #ccc;
-    }
-  }
-}
-
-
-.img_box {
-  margin: 0 11px 25px;
-  li {
-    position: relative;
-    @include rfonts(14, 19px, 400);
-    padding: 8px 6px;
-    &:after {
-      @extend %bg_u;
-      border-color: #ccc;
-    }
-  }
-
-  div {
-    border: solid 1px #555;
-    display: block;
-    margin: 4px 0 0;
-  }
-
-  .img_png_normal {
-    @include use-sprite('gradient-sample');
-  }
-  .img_jpeg {
-    width: 240px;
-    height: 60px;
-    background: {
-      image: url(../img/gradient-jpg-sample.jpg);
-      repeat: no-repeat;
-      size: cover;
-    }
-  }
-
-  .img_apng {
-    width: 250px;
-    height: 136px;
-    background: {
-      image: url(../img/sample.ani.png);
-      position: 50% 50%;
-      repeat: no-repeat;
-      size: cover;
-    }
-  }
-
-  .svg_icon1 {
-    display: inline-block;
-    @include useSvg-sprite('icon_point');
-  }
-  
-  .svg_icon2 {
-    display: inline-block;
-    @include useSvg-sprite('icon_bag');
-  }
-  
-  .svg_icon3 {
-    display: inline-block;
-    @include useSvg-sprite('icon_bag2');
-  }
-  
-  .svg_icon4 {
-    display: inline-block;
-    @include useSvg-sprite-test('test99');
-  }
-}
-
-.swipe_area {
-  overflow-x: auto;
-  overflow-y: hidden;
-  margin-bottom: -20px;
-  padding-bottom: 20px;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  &+.tit_section {
-    margin: 27px 0 9px;
-  }
-  .swipe_lst {
-    position: relative;
-    display: inline-block;
-    font-size: 0;
-    vertical-align: top;
-    white-space: nowrap;
-    li {
-      display: inline-block;
-      width: 100px;
-      height: 200px;
-      margin-left: 5px;
-      padding: 5px;
-      border: solid 1px #555;
-      vertical-align: top;
-      font-size: 14px;
-      box-sizing: border-box;
-      &:first-child {
-        margin-left: 11px;
-      }
-      &:last-child {
-        margin-right: 11px;
-      }
-    }
-  }
-}
-
-.counter_lst {
-  position: relative;
-  margin: 25px 11px;
-  counter-reset: item;
-  &:before {
-    @extend %bg_t;
-    border-color: #ccc;
-  }
-  li {
-    position: relative;
-    padding: 5px 0;
-    &:before {
-      display: inline-block;  
-      margin-right: 5px;  
-      counter-increment: item;
-      content: counter(item);
-    }
-    &:after {
-      @extend %bg_u;
-      border-color: #ccc;
-    }
-  }
-}
-
-.swiper_test {
-  &.swiper-container {
-    margin-top: 20px;
-    padding: 0 10px;
-  }
-  .swiper-slide {
-    padding: 30px 0;
-    text-align: center;
-    @include rfonts(14,20);
-    text-align: center;
-    border-radius: 5px;
-    background-color: lightblue;
-    box-sizing: border-box;
-  }
 }
 

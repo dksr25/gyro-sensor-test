@@ -57,45 +57,20 @@ $media_pc: "only screen and (min-width: 770px)";
 //    3* 생략하는 경우 해당 mixin이 font-weight 관련 내용를 반환 하지 않습니다.
 //        >> @include rfonts(12) or @include rfonts(12,16)
       
-// @mixin rfonts($size: $initial-font-size, $lineHeight: false, $bold: false) {
-//   $lhr: 0;
-//   font-size: setRem($size);
-//   @if $lineHeight {
-//     @if $lineHeight=="normal" {
-//       line-height: normal;
-//     }
-//     @else {
-//       @if unitless($lineHeight) {
-//         $lhr: round($lineHeight * 100 / $size) / 100;
-//       }
-//       @else {
-//         $lhr: $lineHeight;
-//       }
-//       line-height: $lhr;
-//     }
-//   }
-//   @if $bold {
-//     font-weight: setFontWeight($bold);
-//   }
-// }
-
-// rem unit fonts mixin >> @include rfonts(14,18,300); or @include rfonts(14,18px,"normal");
 @mixin rfonts($size: $initial-font-size, $lineHeight: false, $bold: false) {
   $lhr: 0;
-  @if $enable-IE8 {
-    font-size: $size * 1px;
-  }
   font-size: setRem($size);
   @if $lineHeight {
-    @if unitless($lineHeight) {
-      $lhr: setRem($lineHeight);
-      @if $enable-IE8 {
-        line-height: $lineHeight * 1px;
-      }
-      line-height: $lhr;
+    @if $lineHeight=="normal" {
+      line-height: normal;
     }
     @else {
-      $lhr: $lineHeight;
+      @if unitless($lineHeight) {
+        $lhr: ceil($lineHeight * 100 / $size) / 100;
+      }
+      @else {
+        $lhr: $lineHeight;
+      }
       line-height: $lhr;
     }
   }
@@ -103,6 +78,31 @@ $media_pc: "only screen and (min-width: 770px)";
     font-weight: setFontWeight($bold);
   }
 }
+
+// rem unit fonts mixin >> @include rfonts(14,18,300); or @include rfonts(14,18px,"normal");
+// @mixin rfonts($size: $initial-font-size, $lineHeight: false, $bold: false) {
+//   $lhr: 0;
+//   @if $enable-IE8 {
+//     font-size: $size * 1px;
+//   }
+//   font-size: setRem($size);
+//   @if $lineHeight {
+//     @if unitless($lineHeight) {
+//       $lhr: setRem($lineHeight);
+//       @if $enable-IE8 {
+//         line-height: $lineHeight * 1px;
+//       }
+//       line-height: $lhr;
+//     }
+//     @else {
+//       $lhr: $lineHeight;
+//       line-height: $lhr;
+//     }
+//   }
+//   @if $bold {
+//     font-weight: setFontWeight($bold);
+//   }
+// }
 
 @function setRem($size) {
   $remSize: round($size * 100 / $root-em) / 100;
