@@ -8,15 +8,13 @@
 
     <!-- container -->
     <main class="container">
-      <div class="frame" id="f1">
-        <div class="frame" id="f2">
-          <div class="frame" id="f3">
-            <div class="frame" id="f4">
-              <div class="frame" id="f5">
-                <div class="frame" id="f6"></div>
-              </div>
-            </div>
-          </div>
+     <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+          <!-- Slides -->
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
         </div>
       </div>
     </main>
@@ -24,35 +22,34 @@
     
     <%- include('includes/footer') -%>
   </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-  
-  var frame1 = document.getElementById('f1');
-  var frame2 = document.getElementById('f2');
-  var frame3 = document.getElementById('f3');
-  var frame4 = document.getElementById('f4');
-  var frame5 = document.getElementById('f5');
-  var frame6 = document.getElementById('f6');
-
-  
+  const swiper = new Swiper('.swiper-container',{
+		spaceBetween: 20,
+	}) 
   function handleOrientation(e) {
     var absolute = e.absolute;
     var alpha = e.alpha;
     var beta = e.beta;
     var gamma = e.gamma;
     
-    frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
-    frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
-    frame3.style.transform = "translate("+ (10*gamma/90) +"px, " + (10*beta/180) + "px)"
-    frame4.style.transform = "translate("+ (5*gamma/90) +"px, " + (5*beta/180) + "px)"
-    frame5.style.transform = "translate("+ (3*gamma/90) +"px, " + (3*beta/180) + "px)"
-    frame6.style.transform = "translate("+ (1*gamma/90) +"px, " + (1*beta/180) + "px)"
+    // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
+    // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
+    // frame3.style.transform = "translate("+ (10*gamma/90) +"px, " + (10*beta/180) + "px)"
+    // frame4.style.transform = "translate("+ (5*gamma/90) +"px, " + (5*beta/180) + "px)"
+    // frame5.style.transform = "translate("+ (3*gamma/90) +"px, " + (3*beta/180) + "px)"
+    // frame6.style.transform = "translate("+ (1*gamma/90) +"px, " + (1*beta/180) + "px)"
   }
 
-  // frame1.setAttribute("style","transform: translateX(" +(20*90/90)+ "px)")
-  // frame1.style.transform = "translateX(" +(20*90/90)+ "px)"
+  function handleAcc(e) {
+     console.log(e.rotateRate.gamma);
+		 body = document.querySelector('body');
+		 body.append(e.rotateRate.gamma)
+  }
 
 
   window.addEventListener("deviceorientation", handleOrientation, true)
+  window.addEventListener("devicemotion", handleAcc, true)
 </script>  
 </body>
 
