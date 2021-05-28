@@ -26,10 +26,13 @@
   }
 }
 
-.scroll {
-  overflow-x: auto;
+.scroll_wrap {
   margin: 0 -20px;
   padding: 0 20px;
+  overflow: hidden;
+}
+
+.scroll {
   white-space: nowrap;
   font-size: 0;
   .slide {
