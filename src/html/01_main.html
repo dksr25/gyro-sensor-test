@@ -46,7 +46,7 @@
 	// 	spaceBetween: 20,
 	// }) 
   var slideWrap = document.querySelector('.scroll');
-  var vw = window.innerWidth;
+  vw = window.innerWidth;
   // slideWrap.scroll((vw-20)*3,0);
   slideWrap.style.transform = "translateX("+ (20-vw)*3 +"px)"
   
@@ -73,8 +73,8 @@
     velocity = 2 * gamma;
     length = velocity + length;
     
-    if(length + (vw-20)*3 > slideWrap.scrollWidth){
-      length = slideWrap.scrollWidth - (vw-20)*3
+    if(length + (vw-20)*3 > (vw-20)*6){
+      length = (vw-20)*3
     } else if(length + (vw-20)*3 < 0) {
       length = -(vw-20)*3
     }
