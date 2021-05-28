@@ -20,14 +20,21 @@
 		<!-- //header -->
 		<!-- container -->
 		<main class="container">
-			<div class="swiper-container">
-				<!-- Additional required wrapper -->
-				<div class="swiper-wrapper">
-					<!-- Slides -->
-					<div class="swiper-slide">Slide 1</div>
-					<div class="swiper-slide">Slide 2</div>
-					<div class="swiper-slide">Slide 3</div>
-				</div>
+			<!-- <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">Slide 1</div>
+          <div class="swiper-slide">Slide 2</div>
+          <div class="swiper-slide">Slide 3</div>
+        </div>
+      </div> -->
+			<div class="scroll">
+				<div class="slide">1</div>
+				<div class="slide">2</div>
+				<div class="slide">3</div>
+				<div class="slide">4</div>
+				<div class="slide">5</div>
+				<div class="slide">6</div>
+				<div class="slide">7</div>
 			</div>
 		</main>
 		<!-- //container -->
@@ -45,12 +52,11 @@
 		<footer class="footer"></footer>
 		<!-- //footer -->
 	</div>
-	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 	<script>
-	const swiper = new Swiper('.swiper-container', {
-	  spaceBetween: 20,
-	})
-
+	// const swiper = new Swiper('.swiper-container',{
+	// 	spaceBetween: 20,
+	// }) 
 	function handleOrientation(e) {
 	  var absolute = e.absolute;
 	  var alpha = e.alpha;
@@ -66,6 +72,9 @@
 	  test.alpha[0].innerText = Math.round(alpha * 100) / 100;
 	  test.beta[0].innerText = Math.round(beta * 100) / 100;
 	  test.gamma[0].innerText = Math.round(gamma * 100) / 100;
+
+	  var slideWrap = document.querySelector('.scroll');
+	  slideWrap.scroll(2 * gamma, 0);
 
 	  // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
 	  // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
@@ -90,17 +99,15 @@
 	  test.accBeta[0].innerText = Math.round(beta * 100) / 100;
 	  test.accGamma[0].innerText = Math.round(gamma * 100) / 100;
 
-	  alpha >= 30 ? swiper.slidePrev().freeze() : null;
-	  alpha < -30 ? swiper.slideNext().freeze() : null;
-
 	}
 
-	var freeze = function () {
-	  window.removeEventListener("devicemotion");
-	  setTimeout(function () {
-	    window.addEventListener("devicemotion", handleAcc, true);
-	  }, 500)
-	}
+	// var freeze = function (direction) {
+	//   direction === 'next' ? swiper.slideNext() : swiper.slidePrev();
+	//   window.removeEventListener("devicemotion",handleAcc);
+	//   setTimeout(function(){
+	//     window.addEventListener("devicemotion",handleAcc, true);
+	//   },500)
+	// }
 
 	window.addEventListener("deviceorientation", handleOrientation, true)
 	window.addEventListener("devicemotion", handleAcc, true)
