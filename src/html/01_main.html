@@ -43,6 +43,11 @@
   // const swiper = new Swiper('.swiper-container',{
 	// 	spaceBetween: 20,
 	// }) 
+  var slideWrap = document.querySelector('.scroll');
+  var vw = window.innerWidth;
+  slideWrap.scroll((vw-20)*3,0);
+  
+
   function handleOrientation(e) {
     var absolute = e.absolute;
     var alpha = e.alpha;
@@ -59,8 +64,15 @@
     test.beta[0].innerText = Math.round(beta*100)/100;
     test.gamma[0].innerText = Math.round(gamma*100)/100;
 
-    var slideWrap = document.querySelector('.scroll');
-    slideWrap.scroll(2*gamma,0);
+    slideWrap.scroll((vw-20)*3 + length,0);
+    velocity = 2 * gamma;
+    length = velocity + length;
+    if(length + (vw-20)*3 > slideWrap.scrollWidth){
+      length = slideWrap.scrollWidth - (vw-20)*3
+    } else if(length + (vw-20)*3 < 0) {
+      length = -(vw-20)*3
+    }
+    console.log(length)
 
     // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
     // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
