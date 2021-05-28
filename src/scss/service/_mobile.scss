@@ -42,3 +42,18 @@
   text-align: center;
 }
 
+.test {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  color: #000c77;
+  span{
+    display: block;
+    &:before {
+      content: attr(class) ':';
+    }
+  }
+  
+}
+
