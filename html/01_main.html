@@ -32,6 +32,16 @@
 		</main>
 		<!-- //container -->
 
+		<span class="test">
+			<span class="absolute"></span>
+			<span class="alpha"></span>
+			<span class="beta"></span>
+			<span class="gamma"></span>
+			<span class="accX"></span>
+			<span class="accY"></span>
+			<span class="accZ"></span>
+		</span>
+
 		<!-- footer -->
 		<footer class="footer"></footer>
 		<!-- //footer -->
@@ -48,6 +58,18 @@
 	  var beta = e.beta;
 	  var gamma = e.gamma;
 
+	  test = {
+	    absolute: document.querySelectorAll('.test .absolute'),
+	    alpha: document.querySelectorAll('.test .alpha'),
+	    beta: document.querySelectorAll('.test .beta'),
+	    gamma: document.querySelectorAll('.test .gamma')
+	  }
+
+	  test.absolute[0].innerText = absolute;
+	  test.alpha[0].innerText = alpha;
+	  test.beta[0].innerText = beta;
+	  test.gamma[0].innerText = gamma;
+
 	  // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
 	  // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
 	  // frame3.style.transform = "translate("+ (10*gamma/90) +"px, " + (10*beta/180) + "px)"
@@ -57,9 +79,19 @@
 	}
 
 	function handleAcc(e) {
-	  console.log(e.rotateRate.gamma);
-	  body = document.querySelector('body');
-	  body.append(e.rotateRate.gamma)
+	  var x = e.accelerationIncludingGravity.x;
+	  var y = e.accelerationIncludingGravity.y;
+	  var z = e.accelerationIncludingGravity.z;
+
+	  test = {
+	    accX: document.querySelectorAll('.test .accX'),
+	    accY: document.querySelectorAll('.test .accY'),
+	    accZ: document.querySelectorAll('.test .accZ'),
+	  }
+
+	  test.accX[0].innerText = x;
+	  test.accY[0].innerText = y;
+	  test.accZ[0].innerText = z;
 	}
 
 	window.addEventListener("deviceorientation", handleOrientation, true)
