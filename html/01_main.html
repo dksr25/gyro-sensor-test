@@ -14,7 +14,7 @@
 	<div class="wrap">
 		<!-- header -->
 		<header class="header">
-			<h1 class="logo">GYRO</h1>
+			<h1 class="logo"><b>GYR<span>O</span>S<span>CO</span>PE</b></h1>
 		</header>
 		<!-- //header -->
 		<!-- container -->
@@ -28,16 +28,6 @@
 					<div class="slide">5</div>
 					<div class="slide">6</div>
 					<div class="slide">7</div>
-				</div>
-
-				<div class="scroll reflect">
-					<div class="slide"></div>
-					<div class="slide"></div>
-					<div class="slide"></div>
-					<div class="slide"></div>
-					<div class="slide"></div>
-					<div class="slide"></div>
-					<div class="slide"></div>
 				</div>
 			</div>
 		</main>
@@ -60,7 +50,7 @@
 	var slideWrap = document.querySelectorAll('.scroll');
 	vw = window.innerWidth;
 	slideWrap[0].style.transform = "translateX(" + (20 - vw) * 3 + "px)"
-	slideWrap[1].style.transform = "translateX(" + (20 - vw) * 3 + "px)"
+	slideWrap[1].style.transform = "translateX(" + (20 - vw) * 3 + "px) translateY(-400px) translateZ(-100px) rotateX(60deg)"
 
 	function handleOrientation(e) {
 	  var absolute = e.absolute;
@@ -79,7 +69,7 @@
 	  test.gamma[0].innerText = Math.round(gamma * 100) / 100;
 
 	  slideWrap[0].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px)";
-	  slideWrap[1].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px)";
+	  slideWrap[1].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px) translateY(-400px) translateZ(-100px) rotateX(60deg)";
 
 	  velocity = 0.5 * gamma;
 	  length = velocity + length;
