@@ -50,10 +50,10 @@
       gamma: document.querySelectorAll('.test .gamma')
     }
 
-    test.absolute[0].innerText = absolute;
-    test.alpha[0].innerText = alpha;
-    test.beta[0].innerText = beta;
-    test.gamma[0].innerText = gamma;
+    test.absolute[0].innerText = Math.round(absolute*100)/100;
+    test.alpha[0].innerText = Math.round(alpha*100)/100;
+    test.beta[0].innerText = Math.round(beta*100)/100;
+    test.gamma[0].innerText = Math.round(gamma*100)/100;
 
     // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
     // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
@@ -74,9 +74,9 @@
       accZ: document.querySelectorAll('.test .accZ'),
     }
 
-    test.accX[0].innerText = x;
-    test.accY[0].innerText = y;
-    test.accZ[0].innerText = z;
+    test.accX[0].innerText = Math.round(x*100)/100;
+    test.accY[0].innerText = Math.round(y*100)/100;
+    test.accZ[0].innerText = Math.round(z*100)/100;
   }
 
 
