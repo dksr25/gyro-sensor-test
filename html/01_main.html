@@ -33,13 +33,12 @@
 		<!-- //container -->
 
 		<span class="test">
-			<span class="absolute"></span>
 			<span class="alpha"></span>
 			<span class="beta"></span>
 			<span class="gamma"></span>
-			<span class="accX"></span>
-			<span class="accY"></span>
-			<span class="accZ"></span>
+			<span class="accAlpha"></span>
+			<span class="accBeta"></span>
+			<span class="accGamma"></span>
 		</span>
 
 		<!-- footer -->
@@ -59,13 +58,11 @@
 	  var gamma = e.gamma;
 
 	  test = {
-	    absolute: document.querySelectorAll('.test .absolute'),
 	    alpha: document.querySelectorAll('.test .alpha'),
 	    beta: document.querySelectorAll('.test .beta'),
 	    gamma: document.querySelectorAll('.test .gamma')
 	  }
 
-	  test.absolute[0].innerText = Math.round(absolute * 100) / 100;
 	  test.alpha[0].innerText = Math.round(alpha * 100) / 100;
 	  test.beta[0].innerText = Math.round(beta * 100) / 100;
 	  test.gamma[0].innerText = Math.round(gamma * 100) / 100;
@@ -79,19 +76,19 @@
 	}
 
 	function handleAcc(e) {
-	  var x = e.accelerationIncludingGravity.x;
-	  var y = e.accelerationIncludingGravity.y;
-	  var z = e.accelerationIncludingGravity.z;
+	  var alpha = e.rotationRate.alpha;
+	  var beta = e.rotationRate.beta;
+	  var gamma = e.rotationRate.gamma;
 
 	  test = {
-	    accX: document.querySelectorAll('.test .accX'),
-	    accY: document.querySelectorAll('.test .accY'),
-	    accZ: document.querySelectorAll('.test .accZ'),
+	    accAlpha: document.querySelectorAll('.test .accAlpha'),
+	    accBeta: document.querySelectorAll('.test .accBeta'),
+	    accGamma: document.querySelectorAll('.test .accGamma'),
 	  }
 
-	  test.accX[0].innerText = Math.round(x * 100) / 100;
-	  test.accY[0].innerText = Math.round(y * 100) / 100;
-	  test.accZ[0].innerText = Math.round(z * 100) / 100;
+	  test.accAlpha[0].innerText = Math.round(alpha * 100) / 100;
+	  test.accBeta[0].innerText = Math.round(beta * 100) / 100;
+	  test.accGamma[0].innerText = Math.round(gamma * 100) / 100;
 	}
 
 	window.addEventListener("deviceorientation", handleOrientation, true)
