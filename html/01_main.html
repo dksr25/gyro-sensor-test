@@ -7,7 +7,6 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
-	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="../css/service.css">
 </head>
 
@@ -20,13 +19,6 @@
 		<!-- //header -->
 		<!-- container -->
 		<main class="container">
-			<!-- <div class="swiper-container">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">Slide 1</div>
-          <div class="swiper-slide">Slide 2</div>
-          <div class="swiper-slide">Slide 3</div>
-        </div>
-      </div> -->
 			<div class="scroll_wrap">
 				<div class="scroll">
 					<div class="slide">1</div>
@@ -36,6 +28,16 @@
 					<div class="slide">5</div>
 					<div class="slide">6</div>
 					<div class="slide">7</div>
+				</div>
+
+				<div class="scroll reflect">
+					<div class="slide"></div>
+					<div class="slide"></div>
+					<div class="slide"></div>
+					<div class="slide"></div>
+					<div class="slide"></div>
+					<div class="slide"></div>
+					<div class="slide"></div>
 				</div>
 			</div>
 		</main>
@@ -54,15 +56,11 @@
 		<footer class="footer"></footer>
 		<!-- //footer -->
 	</div>
-	<!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
 	<script>
-	// const swiper = new Swiper('.swiper-container',{
-	// 	spaceBetween: 20,
-	// }) 
-	var slideWrap = document.querySelector('.scroll');
+	var slideWrap = document.querySelectorAll('.scroll');
 	vw = window.innerWidth;
-	// slideWrap.scroll((vw-20)*3,0);
-	slideWrap.style.transform = "translateX(" + (20 - vw) * 3 + "px)"
+	slideWrap[0].style.transform = "translateX(" + (20 - vw) * 3 + "px)"
+	slideWrap[1].style.transform = "translateX(" + (20 - vw) * 3 + "px) translateY(-400px) rotateX(-120deg)"
 
 	function handleOrientation(e) {
 	  var absolute = e.absolute;
@@ -80,8 +78,8 @@
 	  test.beta[0].innerText = Math.round(beta * 100) / 100;
 	  test.gamma[0].innerText = Math.round(gamma * 100) / 100;
 
-	  // slideWrap.scroll((vw-20)*3 + length,0);
-	  slideWrap.style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px)"
+	  slideWrap[0].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px)";
+	  slideWrap[1].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px) translateY(-400px) rotateX(-120deg)";
 
 	  velocity = 2 * gamma;
 	  length = velocity + length;
@@ -92,13 +90,6 @@
 	    length = -(vw - 20) * 3
 	  }
 	  console.log(length)
-
-	  // frame1.style.transform = "translate("+ (-40*gamma/90) +"px, " + (-40*beta/180) + "px)"
-	  // frame2.style.transform = "translate("+ (20*gamma/90) +"px, " + (20*beta/180) + "px)"
-	  // frame3.style.transform = "translate("+ (10*gamma/90) +"px, " + (10*beta/180) + "px)"
-	  // frame4.style.transform = "translate("+ (5*gamma/90) +"px, " + (5*beta/180) + "px)"
-	  // frame5.style.transform = "translate("+ (3*gamma/90) +"px, " + (3*beta/180) + "px)"
-	  // frame6.style.transform = "translate("+ (1*gamma/90) +"px, " + (1*beta/180) + "px)"
 	}
 
 	function handleAcc(e) {
@@ -117,14 +108,6 @@
 	  test.accGamma[0].innerText = Math.round(gamma * 100) / 100;
 
 	}
-
-	// var freeze = function (direction) {
-	//   direction === 'next' ? swiper.slideNext() : swiper.slidePrev();
-	//   window.removeEventListener("devicemotion",handleAcc);
-	//   setTimeout(function(){
-	//     window.addEventListener("devicemotion",handleAcc, true);
-	//   },500)
-	// }
 
 	window.addEventListener("deviceorientation", handleOrientation, true)
 	window.addEventListener("devicemotion", handleAcc, true)
