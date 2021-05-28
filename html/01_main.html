@@ -50,7 +50,6 @@
 	var slideWrap = document.querySelectorAll('.scroll');
 	vw = window.innerWidth;
 	slideWrap[0].style.transform = "translateX(" + (20 - vw) * 3 + "px)"
-	slideWrap[1].style.transform = "translateX(" + (20 - vw) * 3 + "px) translateY(-400px) translateZ(-100px) rotateX(60deg)"
 
 	function handleOrientation(e) {
 	  var absolute = e.absolute;
@@ -69,7 +68,6 @@
 	  test.gamma[0].innerText = Math.round(gamma * 100) / 100;
 
 	  slideWrap[0].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px)";
-	  slideWrap[1].style.transform = "translateX(" + ((20 - vw) * 3 - length) + "px) translateY(-400px) translateZ(-100px) rotateX(60deg)";
 
 	  velocity = 0.5 * gamma;
 	  length = velocity + length;
